@@ -8,12 +8,18 @@ No? Maybe, that was me.
 
 Environment variables:
 
-- MASTER_API_SWAGGER_URL: Your OpenShift swagger endpoint, for me it's https://example.com:8443/swaggerapi
+- MASTER_API_SWAGGER_URL: Your OpenShift swagger endpoint, for me it's https://example.cloud:8443/swaggerapi
 - KEEP_API_CALLS: `false` by default, which means the REST API paths will be removed, you can browse the object models only. Keep in mind you can't use swagger's 'Try it' feature due to the missing auth token.
 
-`oc new-app swagger --env MASTER_API_SWAGGER_URL=https://example.com:8443/swaggerapi --env KEEP_API_CALLS=false https://github.com/janosroden/oc-swagger.git`
+## Build your own image and deploy to the cluster
+`oc new-app swagger --env MASTER_API_SWAGGER_URL=https://example.cloud:8443/swaggerapi --env KEEP_API_CALLS=false https://github.com/janosroden/oc-swagger.git`
 
 Then create a route and browse.
+
+## Run it locally
+`docker run -d -p 8080:8080 -e KEEP_API_CALLS=false -e MASTER_API_SWAGGER_URL=https://example.cloud:8443/swaggerapi janosroden/oc-swagger`
+
+Then go to http://localhost:8080/
 
 # How it works?
 

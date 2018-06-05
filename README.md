@@ -21,7 +21,7 @@ Then go to http://localhost:8080/
 
 ## Build your own image and deploy to the cluster
 
-`oc new-app swagger --env MASTER_API_SWAGGER_URL=https://example.cloud:8443/swaggerapi --env KEEP_API_CALLS=false https://github.com/janosroden/oc-swagger.git`
+`oc new-app --name swagger --env MASTER_API_SWAGGER_URL=https://example.cloud:8443/swaggerapi --env KEEP_API_CALLS=false https://github.com/janosroden/oc-swagger.git`
 
 Then create a route and browse.
 
